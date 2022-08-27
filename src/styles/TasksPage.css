@@ -1,0 +1,35 @@
+.TaskPage {
+  margin: 0 auto;
+  height: 100%;
+}
+
+.t-head {
+  position: relative;
+  width: 100%;
+  height: 610px;
+  border-top-right-radius: 28px;
+  border-top-left-radius: 28px;
+  background-color: #3574b4;
+  margin-top: 40px;
+  top: 50%;
+  margin: 0 auto;
+}
+.t-head p {
+  color: white;
+  padding-left: 5%;
+  padding-top: 2.5%;
+  padding-bottom: 0.8%;
+  margin: 0 auto;
+  font-size: 1.5em;
+  font-weight: 550;
+}
+.t-body {
+  position: absolute;
+  width: 100%;
+  height: 610px;
+  border-top-right-radius: 28px;
+  border-top-left-radius: 28px;
+  background-color: #aacdea;
+  margin-top: 30px;
+  /* top: 50%; */
+}
