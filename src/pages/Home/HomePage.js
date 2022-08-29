@@ -3,7 +3,9 @@ import Header from '../../components/Header/header'
 import '../../styles/HomePage.css'
 import '../../styles/page.css'
 
-function HomePage() {
+function 
+
+HomePage() {
   return (
     <div className='HomePage'>
       <Header temp='Home' />

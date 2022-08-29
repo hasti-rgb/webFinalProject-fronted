@@ -1,4 +1,5 @@
 import './App.css'
+import TodoItem from './components/TodoItem/TodoItem'
 
 import EditPage from './pages/Edit/EditPage'
 import HomePage from './pages/Home/HomePage'
@@ -10,6 +11,7 @@ function App() {
       {/* <EditPage /> */}
       <HomePage />
       {/* <TaskPage /> */}
+      {/* <TodoItem item='' /> */}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import EditIcon from '../../Icons/edit-solid'
 import Button from '../Button/Button'
 
 const EditForm = () => {
@@ -24,7 +25,10 @@ const EditForm = () => {
 
         {/* <button className='edit-btn'>Edit</button>
         <button className='cancel-btn'>Cancel</button> */}
-        <Button nameOfClass='edit-btn'>Edit</Button>
+        <Button nameOfClass='edit-btn'>
+          <EditIcon fill='white' />
+          Edit
+        </Button>
         <Button nameOfClass='cancel-btn'>Cancel</Button>
       </div>
     </>
