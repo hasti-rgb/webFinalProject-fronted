@@ -1,6 +1,8 @@
 import EditIcon from '../../Icons/edit-solid'
 import Button from '../Button/Button'
 import '../../styles/TodoItem.css'
+import React from 'react'
+
 const TodoItem = ({ item }) => {
   return (
     <div className='td-container'>

@@ -1,7 +1,11 @@
 import PlusIcon from '../../Icons/plus-svgrepo-com'
 import Button from '../Button/Button'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const HomeForm = () => {
+  const navigate = useNavigate()
+
   return (
     <>
       <p className='task-text'>Add a new Task</p>
@@ -13,7 +17,11 @@ const HomeForm = () => {
           <input type='text' className='h-desc' placeholder='Description' />
         </div>
 
-        <Button nameOfClass='addBtn' typOfBtn='submit'>
+        <Button
+          nameOfClass='addBtn'
+          typOfBtn='submit'
+          onClick={() => navigate('/taskPage')}
+        >
           <PlusIcon />
           Add
         </Button>
