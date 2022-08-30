@@ -1,17 +1,15 @@
 import './App.css'
-import TodoItem from './components/TodoItem/TodoItem'
-
-import EditPage from './pages/Edit/EditPage'
-import HomePage from './pages/Home/HomePage'
-import TaskPage from './pages/Tasks/TasksPage'
 import Router from './router'
 import React from 'react'
-
+import { Provider } from 'react-redux'
+import store from './redux/store/configure-store'
 function App() {
   return (
-    <div className='App'>
-      <Router />
-    </div>
+    <Provider store={store}>
+      <div className='App'>
+        <Router />
+      </div>
+    </Provider>
   )
 }
 

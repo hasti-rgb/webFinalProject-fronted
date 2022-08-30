@@ -1,5 +1,5 @@
 .td-container {
-  background-color: bisque;
+  background-color: white;
   width: 20vw;
   height: 30vh;
   border-radius: 5px;
@@ -10,9 +10,13 @@
 
   height: 30vh;
 }
+.tasks-desc {
+  color: black;
+}
 .tasks-title {
   font-size: 1.2em;
   font-weight: bold;
+  color: black;
 }
 /* .tasks-desc{
 
@@ -32,6 +36,11 @@
   margin: 0 auto;
 }
 .edit-icon {
+  float: right;
+  margin-right: 5px;
+  margin-top: 46px;
+}
+.delete-icon {
   float: right;
   margin-right: 5px;
   margin-top: 46px;

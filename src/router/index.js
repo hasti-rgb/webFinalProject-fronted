@@ -2,7 +2,6 @@ import { BrowserRouter as ReactRouter, Routes, Route } from 'react-router-dom'
 
 // import { BrowserRouter as ReactRouter, Switch, Route } from 'react-router-dom'
 import React from 'react'
-import routes from './routes'
 import HomePage from '../pages/Home/HomePage'
 
 import EditPage from '../pages/Edit/EditPage'
