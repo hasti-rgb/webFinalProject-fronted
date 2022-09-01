@@ -15,6 +15,7 @@ const HomeForm = () => {
     e.preventDefault()
     if (title && description) {
       store.dispatch(taskAdded(title, description))
+      console.log('after add:')
       console.log(store.getState())
       navigate('/taskPage')
     } else {

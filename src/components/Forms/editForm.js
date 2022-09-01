@@ -7,13 +7,19 @@ import store from '../../redux/store/configure-store.js'
 import { taskEdited } from '../../redux/action/actions'
 import { useLocation } from 'react-router-dom'
 import * as states from '../../utils/stateTypes'
+import useStateToProps from '../../redux/action/readData'
 
 const EditForm = () => {
+  const { person } = useStateToProps((state) => ({
+    person: state.loginReducer.enteredPerson,
+  }))
   const location = useLocation()
 
   const [title, setTitle] = useState(location.state.title)
   const [description, setDescription] = useState(location.state.description)
   const [status, setStatus] = useState(location.state.status)
+  const [disable, setDisable] = useState(true)
+
   const navigate = useNavigate()
   console.log(store.getState())
 
@@ -76,37 +82,70 @@ const EditForm = () => {
         return <></>
     }
   }
+
   return (
     <>
       <p className='task-text'>Edit Task</p>
       <form className='form' onSubmit={(e) => handleSubmit(e)}>
-        <div className='title-container'>
-          <input
-            type='text'
-            className='title'
-            placeholder='Title'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className='eDesc-container'>
-          <input
-            type='text'
-            className='e-desc'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div className='select-st'>
-          <select
-            id='states'
-            name='states'
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-          >
-            {handleState()}
-          </select>
-        </div>
+        {person === 'User' ? (
+          <>
+            <div className='title-container'>
+              <input
+                type='text'
+                className='title'
+                placeholder='Title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                disabled
+              />
+            </div>
+            <div className='eDesc-container'>
+              <input
+                type='text'
+                className='e-desc'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                disabled
+              />
+            </div>
+            <div className='select-st'>
+              <select
+                id='states'
+                name='states'
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+              >
+                {handleState()}
+              </select>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className='title-container'>
+              <input
+                type='text'
+                className='title'
+                placeholder='Title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className='eDesc-container'>
+              <input
+                type='text'
+                className='e-desc'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className='select-st'>
+              <select id='states' name='states' value={status} disabled>
+                <option value='ToDo'>{location.state.status}</option>
+              </select>
+            </div>
+          </>
+        )}
+
         <Button typOfBtn='submit' nameOfClass='edit-btn'>
           <EditIcon fill='white' />
           Edit

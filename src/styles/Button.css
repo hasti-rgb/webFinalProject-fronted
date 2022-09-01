@@ -54,8 +54,8 @@
   background-color: white;
   border: none;
 }
-.edit-icon:hover {
-  background-color: rgb(23, 117, 185);
+.edit-icon svg :hover {
+  fill: #afd0f2;
 }
 .edit-icon svg {
   width: 30px;
@@ -68,10 +68,19 @@
   background-color: white;
   border: none;
 }
-.delete-icon:hover {
-  background-color: rgb(23, 117, 185);
+.delete-icon svg :hover {
+  fill: #afd0f2;
 }
 .delete-icon svg {
   width: 30px;
   height: 30px;
+}
+.login-btn {
+  background-color: rgb(23, 117, 185);
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+  width: 5vw;
+  height: 5vh;
 }

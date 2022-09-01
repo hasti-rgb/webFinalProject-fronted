@@ -7,52 +7,71 @@ import { useNavigate } from 'react-router-dom'
 import store from '../../redux/store/configure-store.js'
 import { taskDeleted } from '../../redux/action/actions'
 import React, { useState } from 'react'
-const TodoItem = ({ item }) => {
+const TodoItem = ({ item, person }) => {
   const navigate = useNavigate()
-  const [newitem, setItem] = useState(item)
+  // const [newitem, setItem] = useState(item)
 
   const handleDelete = (e) => {
     e.preventDefault()
     store.dispatch(taskDeleted(item.id))
-    setItem('')
+    navigate('/taskPage')
+    console.log('after delete:')
     console.log(store.getState())
   }
-  if (newitem.title !== undefined) {
-    console.log(newitem.title)
-    return (
-      <div className='td-container'>
-        <div className='td-inner'>
-          <p className='tasks-title'>{newitem.title}</p>
-          <p className='tasks-desc'>{newitem.description}</p>
-          <div className='tasks-status'>
-            <p>{newitem.status}</p>
-          </div>
-          <Button
-            nameOfClass='delete-icon'
-            typOfBtn='button'
-            onClick={(e) => handleDelete(e)}
-          >
-            <TrashIcon fill='black' />
-          </Button>
+  return (
+    <div className='td-container'>
+      <div className='td-inner'>
+        <p className='tasks-title'>{item.title}</p>
+        <p className='tasks-desc'>{item.description}</p>
+        <div className='tasks-status'>
+          <p>{item.status}</p>
+        </div>
+        {person === 'User' ? (
           <Button
             nameOfClass='edit-icon'
             typOfBtn='button'
             onClick={() =>
               navigate('/editPage', {
                 state: {
-                  id: newitem.id,
-                  title: newitem.title,
-                  description: newitem.description,
-                  status: newitem.status,
+                  id: item.id,
+                  title: item.title,
+                  description: item.description,
+                  status: item.status,
                 },
               })
             }
           >
             <EditIcon fill='black' />
           </Button>
-        </div>
+        ) : (
+          <>
+            <Button
+              nameOfClass='edit-icon'
+              typOfBtn='button'
+              onClick={() =>
+                navigate('/editPage', {
+                  state: {
+                    id: item.id,
+                    title: item.title,
+                    description: item.description,
+                    status: item.status,
+                  },
+                })
+              }
+            >
+              <EditIcon fill='black' />
+            </Button>
+            <Button
+              nameOfClass='delete-icon'
+              typOfBtn='button'
+              onClick={(e) => handleDelete(e)}
+            >
+              <TrashIcon fill='black' />
+            </Button>
+          </>
+        )}
       </div>
-    )
-  }
+    </div>
+  )
 }
 export default TodoItem

@@ -29,3 +29,20 @@ export function taskDeleted(id) {
     },
   }
 }
+
+export function adminLogin(enteredPerson) {
+  return {
+    type: actions.ADMIN_LOGIN,
+    payload: {
+      enteredPerson,
+    },
+  }
+}
+export function userLogin(enteredPerson) {
+  return {
+    type: actions.USER_LOGIN,
+    payload: {
+      enteredPerson,
+    },
+  }
+}

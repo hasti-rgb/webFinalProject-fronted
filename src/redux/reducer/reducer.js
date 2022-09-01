@@ -20,21 +20,25 @@ export default function reducer(state = [], action) {
         if (task.id === action.payload.id) {
           todoListArr.splice(index, 1)
         }
+        
       })
       state = todoListArr
-      return state
+      return [...state]
 
     case actions.TASK_EDITED:
-      return state.map((task) =>
-        task.id !== action.payload.id
-          ? task
-          : {
-              ...task,
-              title: action.payload.title,
-              description: action.payload.description,
-              status: action.payload.status,
-            }
-      )
+      return [
+        ...state.map((task) =>
+          task.id !== action.payload.id
+            ? task
+            : {
+                ...task,
+                title: action.payload.title,
+                description: action.payload.description,
+                status: action.payload.status,
+              }
+        ),
+      ]
+
     // case 'taskTitleChanged':
     // case 'taskDescriptionChanged':
     // case 'taskStatusChange':

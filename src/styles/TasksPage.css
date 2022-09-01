@@ -33,3 +33,24 @@
   margin-top: 30px;
   /* top: 50%; */
 }
+.nothing {
+  text-align: center;
+  margin: 0 auto;
+  width: 20vw;
+  margin-top: 30vh;
+  font-size: 1.5em;
+}
+.home-btn {
+  float: right;
+  margin-right: 3vh;
+  margin-top: 3vh;
+  background-color: rgb(23, 117, 185);
+  border: none;
+}
+.home-btn svg {
+  width: 30px;
+  height: 30px;
+}
+.home-btn svg:hover {
+  fill: #afd0f2;
+}
