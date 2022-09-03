@@ -6,13 +6,25 @@ import useStateToProps from '../../redux/action/readData'
 import Button from '../../components/Button/Button'
 import HomeIcon from '../../Icons/home-solid'
 import { useNavigate } from 'react-router-dom'
-import reducer from '../../redux/reducer/reducer'
 import SignInIcon from '../../Icons/sign-solid'
 import HistoryIcon from '../../Icons/history-solid'
-
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
 function TaskPage() {
   const navigate = useNavigate()
+  const [listOfTasks, setTasks] = useState([])
+  useEffect(() => {
+    getTasks()
+  }, [])
+  function getTasks() {
+    axios.get('http://localhost:2080/api/tasks/').then(function(response) {
+      console.log(response.data)
+      setTasks(response.data)
+      console.log('listOfTask is here=>')
+      console.log(listOfTasks.at(0))
+    })
+  }
 
   // const todoList = useSelector((state) => state.todo.todoList)
   const { tasks } = useStateToProps((state) => ({
@@ -61,8 +73,8 @@ function TaskPage() {
 
         <p className='t-head-p'>Tasks</p>
         <div className='t-body'>
-          {tasks && tasks.length > 0 ? (
-            tasks.map((item) => (
+          {listOfTasks && listOfTasks.length > 0 ? (
+            listOfTasks.map((item) => (
               <TodoItem key={item.id} item={item} person={person} />
             ))
           ) : (

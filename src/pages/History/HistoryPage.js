@@ -28,7 +28,7 @@ function HistoryPage() {
           <p className='history-no'>No History</p>
         </>
       )}
-      <div class='button-container-div'>
+      <div className='button-container-div'>
         <button type='button' onClick={() => navigate('/taskPage')}>
           Back
         </button>

@@ -12,11 +12,12 @@ const Router = (path) => {
   return (
     <ReactRouter>
       <Routes>
-        <Route path='/homePage' element={<HomePage />} />
-        <Route path='/editPage' element={<EditPage />} />
-        <Route path='/taskPage' element={<TaskPage />} />
-        <Route path='/loginPage' element={<LoginPage />} />
-        <Route path='/historyPage' element={<HistoryPage />} />
+        <Route exact path='/homePage' element={<HomePage />} />
+        <Route exact path='/editPage' element={<EditPage />} />
+        <Route exact path='/taskPage' element={<TaskPage />} />
+        <Route exact path='/loginPage' element={<LoginPage />} />
+        <Route exact path='/historyPage' element={<HistoryPage />} />
+        <Route exact path='/' element={<LoginPage />} />
       </Routes>
     </ReactRouter>
     // <ReactRouter>
