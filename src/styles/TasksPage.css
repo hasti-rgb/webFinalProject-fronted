@@ -33,6 +33,15 @@
   margin-top: 30px;
   /* top: 50%; */
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 20px;
+}
 .nothing {
   text-align: center;
   margin: 0 auto;

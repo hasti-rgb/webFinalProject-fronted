@@ -3,6 +3,10 @@ let lastId = 0
 
 export default function reducer(state = [], action) {
   switch (action.type) {
+    case actions.TASK_LOADED:
+      const listOfTasks = action.payload.listOfTasks
+      state = listOfTasks
+      return [...state]
     case actions.TASK_ADDED:
       return [
         ...state,
@@ -20,7 +24,6 @@ export default function reducer(state = [], action) {
         if (task.id === action.payload.id) {
           todoListArr.splice(index, 1)
         }
-        
       })
       state = todoListArr
       return [...state]

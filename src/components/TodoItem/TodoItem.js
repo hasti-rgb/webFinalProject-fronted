@@ -26,7 +26,7 @@ const TodoItem = ({ item, person }) => {
     console.log(store.getState())
   }
   return (
-    <div className='td-container'>
+    <div className='grid-item'>
       <div className='td-inner'>
         <p className='tasks-title'>{item.title}</p>
         <p className='tasks-desc'>{item.description}</p>

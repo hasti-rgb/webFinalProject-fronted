@@ -1,5 +1,12 @@
 import * as actions from './actionTypes'
-
+export function taskLoaded(listOfTasks) {
+  return {
+    type: actions.TASK_LOADED,
+    payload: {
+      listOfTasks,
+    },
+  }
+}
 export function taskAdded(title, description) {
   return {
     type: actions.TASK_ADDED,

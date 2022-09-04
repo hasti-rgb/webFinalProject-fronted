@@ -11,6 +11,9 @@ import HistoryIcon from '../../Icons/history-solid'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
+import store from '../../redux/store/configure-store.js'
+import { taskAdded } from '../../redux/action/actions'
+
 function TaskPage() {
   const navigate = useNavigate()
   const [listOfTasks, setTasks] = useState([])
@@ -22,11 +25,12 @@ function TaskPage() {
       console.log(response.data)
       setTasks(response.data)
       console.log('listOfTask is here=>')
-      console.log(listOfTasks.at(0))
+      console.log(listOfTasks)
+      console.log('listOfTask at redux store is here=>')
+      console.log(store.getState())
     })
   }
 
-  // const todoList = useSelector((state) => state.todo.todoList)
   const { tasks } = useStateToProps((state) => ({
     tasks: state.reducer,
   }))
@@ -73,17 +77,19 @@ function TaskPage() {
 
         <p className='t-head-p'>Tasks</p>
         <div className='t-body'>
-          {listOfTasks && listOfTasks.length > 0 ? (
-            listOfTasks.map((item) => (
-              <TodoItem key={item.id} item={item} person={person} />
-            ))
-          ) : (
-            <>
-              <p className='nothing p1'>
-                You have nothing to do. Go get some sleep.
-              </p>
-            </>
-          )}
+          <div className='grid-container'>
+            {listOfTasks && listOfTasks.length > 0 ? (
+              listOfTasks.map((item) => (
+                <TodoItem key={item.id} item={item} person={person} />
+              ))
+            ) : (
+              <>
+                <p className='nothing p1'>
+                  You have nothing to do. Go get some sleep.
+                </p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

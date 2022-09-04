@@ -25,6 +25,7 @@ const HomeForm = () => {
       axios
         .post('http://localhost:2080/api/tasks/add', inputs)
         .then(function(response) {
+          console.log('after add response is here')
           console.log(response.data)
           navigate('/taskPage')
         })

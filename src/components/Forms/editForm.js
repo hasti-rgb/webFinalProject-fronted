@@ -9,7 +9,8 @@ import { useLocation } from 'react-router-dom'
 import * as states from '../../utils/stateTypes'
 import useStateToProps from '../../redux/action/readData'
 import axios from 'axios'
-
+import '../../styles/EditPage.css'
+import '../../styles/page.css'
 const EditForm = () => {
   const [inputs, setInputs] = useState([])
 
@@ -39,7 +40,7 @@ const EditForm = () => {
     axios.get(`http://localhost:2080/api/tasks/${id}`).then(function(response) {
       console.log('tresponse.data')
       console.log(response.data)
-      // setInputs(response.data)
+      setInputs(response.data)
       // console.log('this is inputs at first')
       // console.log(inputs)
     })
@@ -48,11 +49,14 @@ const EditForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (title && description) {
-      store.dispatch(taskEdited(location.state.id, title, description, status))
-      console.log(store.getState())
+      // store.dispatch(taskEdited(location.state.id, title, description, status))
+      // console.log(store.getState())
+      console.log('this is id befor put axios')
+      console.log(id)
       axios
-        .post('http://localhost:2080/api/tasks/add', inputs)
+        .put(`http://localhost:2080/api/tasks/${id}/edit`, inputs)
         .then(function(response) {
+          console.log('after update data response is here:')
           console.log(response.data)
           navigate('/taskPage')
         })
@@ -84,6 +88,8 @@ const EditForm = () => {
 
     switch (location.state.status) {
       case states.TODO:
+        console.log('enter to todo case')
+
         return (
           <>
             <option name='ToDo' value='ToDo'>
@@ -150,6 +156,7 @@ const EditForm = () => {
                 value={title}
                 // value={inputs.title}
                 onChange={(e) => handleChange(e)}
+                // onChange={(e) => setTitle(e.target.value)}
                 disabled
               />
             </div>
@@ -161,6 +168,7 @@ const EditForm = () => {
                 value={description}
                 // value={inputs.description}
                 onChange={(e) => handleChange(e)}
+                // onChange={(e) => setDescription(e.target.value)}
                 disabled
               />
             </div>
@@ -171,6 +179,7 @@ const EditForm = () => {
                 // value={status}
                 value={status}
                 onChange={(e) => handleChange(e)}
+                // onChange={(e) => setStatus(e.target.value)}
               >
                 {handleState()}
               </select>
@@ -187,6 +196,7 @@ const EditForm = () => {
                 value={title}
                 // value={inputs.title}
                 onChange={(e) => handleChange(e)}
+                // onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className='eDesc-container'>
@@ -197,6 +207,7 @@ const EditForm = () => {
                 value={description}
                 // value={inputs.description}
                 onChange={(e) => handleChange(e)}
+                // onChange={(e) => setDescription(e.target.value)}
               />
             </div>
             <div className='select-st'>

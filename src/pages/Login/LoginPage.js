@@ -22,7 +22,7 @@ function Login() {
     } else {
       store.dispatch(userLogin('User'))
       console.log(store.getState())
-      navigate('/homePage')
+      navigate('/taskPage')
     }
   }
   return (

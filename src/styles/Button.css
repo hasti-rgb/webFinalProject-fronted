@@ -1,11 +1,12 @@
 .edit-btn {
   background-color: rgb(23, 117, 185);
   color: white;
-  margin-right: 0.5%;
-  width: 47.2vw;
+  /* margin-right: 0.5%; */
+  width: 46.4vw;
   height: 8vh;
   border-radius: 3px;
   border: none;
+  float: left;
 }
 .edit-btn svg {
   width: 20px;
@@ -14,12 +15,13 @@
 
 .cancel-btn {
   background-color: white;
-  margin-left: 0.5%;
-  width: 47.2vw;
+  /* margin-left: 0.5%; */
+  width: 46.3vw;
   height: 8vh;
   border-radius: 3px;
   border: 1px solid rgb(200, 197, 197);
   color: rgb(136, 135, 135);
+  /* float: right; */
 }
 .addBtn {
   margin-top: 0.5%;
@@ -40,12 +42,7 @@
   /* margin-right: 15px; */
 }
 .addBtn:hover {
-  background: linear-gradient(
-    90deg,
-    rgb(23, 117, 185) 0%,
-    rgb(92, 149, 189) 35%,
-    rgb(158, 177, 190) 100%
-  );
+  background-color: rgb(92, 149, 189) 35%;
 }
 
 .edit-icon {

@@ -1,8 +1,10 @@
-.td-container {
+.grid-item {
   background-color: white;
-  width: 20vw;
-  height: 30vh;
+  width: 25vw;
+  /* height: 30vh;  */
   border-radius: 5px;
+  /* grid-column-start: 1;
+  grid-column-end: 3; */
 }
 .td-inner {
   margin-left: 10px;
